@@ -179,36 +179,3 @@ jobs:
         asset_name: extract-xiso-${{ runner.os }}.zip
         asset_path: dist/extract-xiso-${{ runner.os }}.zip
         asset_content_type: application/zip
-    ###
-    # Comment out 64 bit builds as they are currently broken
-    ###
-    # - name: Upload release assets (Win64 build)
-    #   id: upload-release-assets-win64-release
-    #   uses: actions/upload-release-asset@v1.0.1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-    #     asset_name: extract-xiso-win64-release.zip
-    #     asset_path: dist/extract-xiso-win64-release.zip
-    #     asset_content_type: application/zip
-    # - name: Upload release assets (Win64 debug build)
-    #   id: upload-release-assets-win64-debug
-    #   uses: actions/upload-release-asset@v1.0.1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-    #     asset_name: extract-xiso-win64-debug.zip
-    #     asset_path: dist/extract-xiso-win64-debug.zip
-    #     asset_content_type: application/zip
-    # - name: Upload release assets (macOS build)
-    #   id: upload-release-assets-macos-release
-    #   uses: actions/upload-release-asset@v1.0.1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-    #     asset_name: extract-xiso-macos.zip
-    #     asset_path: dist/extract-xiso-macos.zip
-    #     asset_content_type: application/zip
