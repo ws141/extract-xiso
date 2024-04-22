@@ -170,7 +170,7 @@ jobs:
         asset_path: dist/extract-xiso-win32-debug.zip
         asset_content_type: application/zip
     - name: Upload release assets (${{ runner.os }} build)
-      id: upload-release-assets-${{ runner.os }}
+      id: upload-release-assets-linux
       uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
