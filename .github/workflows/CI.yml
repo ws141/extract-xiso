@@ -121,6 +121,9 @@ jobs:
         pushd dist/extract-xiso_Win32_Debug
         zip -r ../extract-xiso-win32-debug.zip *
         popd
+        pushd dist/extract-xiso_${{ runner.os }}
+        zip -r ../extract-xiso-${{ runner.os }}.zip *
+        popd
         ###
         # Comment out 64 bit builds as they are currently broken
         ###
@@ -165,6 +168,16 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_name: extract-xiso-win32-debug.zip
         asset_path: dist/extract-xiso-win32-debug.zip
+        asset_content_type: application/zip
+    - name: Upload release assets (${{ runner.os }} build)
+      id: upload-release-assets-${{ runner.os }}
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_re${{ runner.os }}lease.outputs.upload_url }}
+        asset_name: extract-xiso-${{ runner.os }}.zip
+        asset_path: dist/extract-xiso-${{ runner.os }}.zip
         asset_content_type: application/zip
     ###
     # Comment out 64 bit builds as they are currently broken
